@@ -1,0 +1,120 @@
+#include<stdio.h>
+#include<string.h>
+struct book
+{
+    char name[10];
+    char author[10];
+    int num;
+};
+int main()
+{
+int n;
+printf("Enter no. of books you want");
+scanf("%d",&n);
+    struct book b[20];
+    int i;
+    for(i=0;i<n;i++)
+    {
+    printf("\nEnter %d book details:\n",i);
+    printf("Enter book name:");
+    scanf("%s",b[i].name);
+    printf("Enter book author:");
+    scanf("%s",b[i].author);
+    printf("Enter book number:");
+    scanf("%d",&b[i].num);
+    }
+    for(i=0;i<n;i++)
+    {
+       printf("Book %d details are:",i);
+       printf("\nBook name is %s\nBook author is %s\nBook number is %d\n",b[i].name,b[i].author,b[i].num);
+    }
+    int y,m,choice,upd,r,s;
+    char j;
+    do
+    {
+    printf("Do you want to perform operation on this data?\nif yes then enter:\n1.insert\n2.delete:\n3.update\n");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+    case 1:
+    printf("Enter position of inserting data:");
+    scanf("%d",&y);
+    if(y>0||y<n)
+    {
+     for(i=n+1;i>(y-1);i--)
+    {
+    strcpy(b[i+1].name,b[i].name);
+     strcpy(b[i+1].author,b[i].author);
+       b[i+1].num=b[i].num;
+    }
+    printf("Enter book name:");
+    scanf("%s",b[y].name);
+    printf("Enter book author:");
+    scanf("%s",b[y].author);
+    printf("Enter book number:");
+    scanf("%d",&b[y].num);
+    n++;
+     for(i=0;i<n;i++)
+     {
+      printf("Book name is %s\nBook author is %s\nBook number is %d\n",b[i].name,b[i].author,b[i].num);
+     } 
+    } 
+    else
+    {
+    printf("Invalid position\n");
+    }
+    break;
+    case 2:  
+    printf("Enter position of deleting data:");
+    scanf("%d",&m);
+   if(y>0||y<n)
+    {
+     for(i=m;i<n;i++)
+    {
+    b[i]=b[i+1];
+    }
+    n--;
+     for(i=0;i<n;i++)
+     {
+      printf("Book name is %s\nBook author is %s\nBook number is %d\n",b[i].name,b[i].author,b[i].num);
+     } 
+    } 
+   break;
+    case 3:
+    printf("Enter position you want to update datails:");
+    scanf("%d",&upd);
+    printf("which data you want to update");
+    printf("\n1.name\n2.author:\n3.code\n");
+    scanf("%d",&r);
+    switch(r)
+    {
+    case 1:
+    printf("Enter book name:");
+    scanf("%s",b[upd].name);
+    break;
+    case 2:
+    printf("Enter book author:");
+    scanf("%s",b[upd].author);
+    break;
+    case 3:
+    printf("Enter book number:");
+    scanf("%d",&b[upd].num);
+    break;
+    default :
+    printf("enter a valid number");
+    }
+    printf("\nUpdated book datails:\n");
+    for(i=0;i<n;i++)
+     {
+      printf("Book name is %s\nBook author is %s\nBook number is %d\n",b[i].name,b[i].author,b[i].num);
+     } 
+     }
+     printf("do you want to continue?(y/n)");
+    scanf(" %c",&j);
+    }while(j=='y'||j=='Y');
+    
+    
+    
+    
+    return 0;
+}

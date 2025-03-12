@@ -1,0 +1,39 @@
+#include<stdio.h>
+int main()
+{
+	int n;
+	
+	    printf("Enter How Many Numbers You Want : ");
+	    scanf("%d",&n);
+	    
+	int a[n],i,key,f=0;
+	           
+	    printf("Enter %d numbers:",n);
+	       for(i=0;i<n;i++)
+	   {
+		 scanf("%d",&a[i]);
+	   }
+	   
+	  	          for(i=0;i<n;i++)
+	      {
+		     printf("a[%d]=%d\n",i,a[i]);
+	      }
+	      	      
+	                              printf("Enter key:");
+		                          scanf("%d",&key);
+	      
+	           for(i=0;i<n;i++)
+	      {
+	               if(key==a[i])
+	          {
+	                printf("position of %d is %d\n",key,i);
+	                f=1;
+	          }
+	      }
+	                             if(f==0)
+	                      {
+	                                printf("%d is not found",key);
+	                      } 
+	   return 0;
+	      
+}
